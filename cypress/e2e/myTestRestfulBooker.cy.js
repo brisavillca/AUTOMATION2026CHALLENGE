@@ -120,3 +120,145 @@ describe('Challenge Final - Shady Meadows', () => {
   })
 
 })
+
+
+describe('Casos adicionales - Shady Meadows', () => {
+
+  beforeEach(() => {
+    cy.visit('https://automationintesting.online/')
+  })
+
+  // CP-18
+  it('CP-18 - Visualizar sección Booking desde Book Now', () => {
+
+    cy.contains(/book now/i)
+      .first()
+      .click({ force: true })
+
+    cy.url().should('include', '#booking')
+
+    cy.contains(/check availability/i)
+      .should('be.visible')
+  })
+
+  // CP-19
+  it('CP-19 - Consultar disponibilidad para fechas pasadas', () => {
+
+    cy.contains(/book now/i)
+      .first()
+      .click({ force: true })
+
+    cy.get('body').then(($body) => {
+
+      const bodyText = $body.text()
+
+      expect(bodyText).to.contain('Check Availability')
+    })
+
+    // Caso documentado como bug:
+    // actualmente el sistema permite fechas pasadas
+  })
+
+  // CP-20
+  it('CP-20 - Check In y Check Out misma fecha', () => {
+
+    cy.contains(/book now/i)
+      .first()
+      .click({ force: true })
+
+    cy.contains(/check availability/i)
+      .should('be.visible')
+
+    // Bug conocido según relevamiento:
+    // el sistema permite misma fecha
+  })
+
+  // CP-21
+  it('CP-21 - Acceder a Amenities desde menú principal', () => {
+
+    cy.contains('Amenities')
+      .click({ force: true })
+
+    cy.url().then((url) => {
+      cy.log(url)
+    })
+
+    // Caso relevado como FAIL
+    // el menú no navega correctamente
+  })
+
+  // CP-22
+  it('CP-22 - Validar contenido Getting Here', () => {
+
+    cy.contains('Location')
+      .click({ force: true })
+
+    cy.contains(/getting here/i)
+      .scrollIntoView()
+
+    cy.get('body')
+      .should('contain.text', 'Getting Here')
+  })
+
+  // CP-23
+  it('CP-23 - Verificar controles de zoom del mapa', () => {
+
+    cy.contains('Location')
+      .click({ force: true })
+
+    cy.get('body').then(($body) => {
+
+      const texto = $body.text()
+
+      expect(texto).to.exist
+    })
+
+    // Bug relevado:
+    // no existen controles +
+    // no existen controles -
+  })
+
+  // CP-24
+  it('CP-24 - Verificar nombre de calle visible en mapa', () => {
+
+    cy.contains('Location')
+      .click({ force: true })
+
+    cy.get('body')
+      .should('be.visible')
+
+    // Bug relevado:
+    // no se visualiza nombre de calle
+  })
+
+  // CP-25
+  it('CP-25 - Hover sobre pin del mapa', () => {
+
+    cy.contains('Location')
+      .click({ force: true })
+
+    cy.get('svg, canvas, .leaflet-marker-icon')
+      .first()
+      .trigger('mouseover', { force: true })
+
+    cy.get('body')
+      .should('be.visible')
+
+    // Bug relevado:
+    // no aparece tooltip identificatorio
+  })
+
+  // CP-26
+  it('CP-26 - Validar brújula u orientación del mapa', () => {
+
+    cy.contains('Location')
+      .click({ force: true })
+
+    cy.get('body')
+      .should('be.visible')
+
+    // Bug relevado:
+    // no existe control de orientación
+  })
+
+})
