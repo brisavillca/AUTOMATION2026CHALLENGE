@@ -1,0 +1,86 @@
+{
+  "datosValidos": {
+    "FirstName": "Pedro",
+    "LastName": "Fernández",
+    "Email": "pfernandez@gmail.com",
+    "Phone": "11540765395"
+  },
+  "datosConFNDe2Caracteres": {
+    "FirstName": "aa",
+    "LastName": "Fernández",
+    "Email": "pfernandez@gmail.com",
+    "Phone": "11540765395"
+  },
+  "datosConFNDe3Caracteres": {
+    "FirstName": "aaa",
+    "LastName": "Fernández",
+    "Email": "pfernandez@gmail.com",
+    "Phone": "11540765395"
+  },
+  "datosConFNDe18Caracteres": {
+    "FirstName": "aaaaaaaaaaaaaaaaaa",
+    "LastName": "Fernández",
+    "Email": "pfernandez@gmail.com",
+    "Phone": "11540765395"
+  },
+  "datosConFNDe19Caracteres": {
+    "FirstName": "aaaaaaaaaaaaaaaaaaa",
+    "LastName": "Fernández",
+    "Email": "pfernandez@gmail.com",
+    "Phone": "11540765395"
+  },
+  "datosConLNDe2Caracteres": {
+    "FirstName": "Pedro",
+    "LastName": "aa",
+    "Email": "pfernandez@gmail.com",
+    "Phone": "11540765395"
+  },
+  "datosConLNDe3Caracteres": {
+    "FirstName": "Pedro",
+    "LastName": "aaa",
+    "Email": "pfernandez@gmail.com",
+    "Phone": "11540765395"
+  },
+  "datosConLNDe30Caracteres": {
+    "FirstName": "Pedro",
+    "LastName": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "Email": "pfernandez@gmail.com",
+    "Phone": "11540765395"
+  },
+  "datosConLNDe31Caracteres": {
+    "FirstName": "Pedro",
+    "LastName": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "Email": "pfernandez@gmail.com",
+    "Phone": "11540765395"
+  },
+  "datosConEmailInvalido": {
+    "FirstName": "Pedro",
+    "LastName": "Fernández",
+    "Email": "pepe",
+    "Phone": "11540765395"
+  },
+  "datosConPhoneDe10Caracteres": {
+    "FirstName": "Pedro",
+    "LastName": "Fernández",
+    "Email": "pfernandez@gmail.com",
+    "Phone": "1234567891"
+  },
+  "datosConPhoneDe11Caracteres": {
+    "FirstName": "Pedro",
+    "LastName": "Fernández",
+    "Email": "pfernandez@gmail.com",
+    "Phone": "12345678911"
+  },
+  "datosConPhoneDe21Caracteres": {
+    "FirstName": "Pedro",
+    "LastName": "Fernández",
+    "Email": "pfernandez@gmail.com",
+    "Phone": "123456789112345678921"
+  },
+  "datosConPhoneDe22Caracteres": {
+    "FirstName": "Pedro",
+    "LastName": "Fernández",
+    "Email": "pfernandez@gmail.com",
+    "Phone": "1234567891123456789212"
+  }
+}
