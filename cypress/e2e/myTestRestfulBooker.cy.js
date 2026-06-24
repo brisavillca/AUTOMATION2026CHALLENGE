@@ -264,7 +264,7 @@ describe('Casos adicionales - Shady Meadows', () => {
 })
 
 // ADMIN PANEL:
- 
+
 it('CP19 - Login con contraseña incorrecta', () => {
   cy.fixture('admin').then((data) => {
     cy.visit('https://automationintesting.online/admin', {
