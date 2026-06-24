@@ -262,3 +262,79 @@ describe('Casos adicionales - Shady Meadows', () => {
   })
 
 })
+
+// ADMIN PANEL:
+ 
+it('CP19 - Login con contraseña incorrecta', () => {
+  cy.fixture('admin').then((data) => {
+    cy.visit('https://automationintesting.online/admin', {
+      failOnStatusCode: false
+    })
+
+    cy.get('#username').type(data.admin.username)
+    cy.get('#password').type('contraseña_incorrecta')
+    cy.get('#doLogin').click()
+
+    cy.contains('Invalid credentials').should('be.visible')
+  })
+})
+
+it('CP22 - Login solo con usuario, dejando password vacío', () => {
+  cy.fixture('admin').then((data) => {
+    cy.visit('https://automationintesting.online/admin', {
+      failOnStatusCode: false
+    })
+
+    cy.get('#username').type(data.admin.username)
+    cy.get('#doLogin').click()
+
+    cy.contains('Invalid credentials').should('be.visible')
+  })
+})
+
+it('CP23 - Visualización y lectura de mensajes de clientes', () => {
+  // Completar formulario de contacto
+  cy.visit('https://automationintesting.online/', {
+    failOnStatusCode: false
+  })
+
+  cy.contains('Shady Meadows', { timeout: 15000 })
+    .should('be.visible')
+
+  cy.get('#name').type('QA Tester')
+  cy.get('#email').type('qa@tester.com')
+  cy.get('#phone').type('12345678901')
+  cy.get('#subject').type('Mensaje de prueba CP23')
+  cy.get('#description').type(
+    'Este mensaje es para verificar la lectura en el panel admin.'
+  )
+
+  cy.contains('Submit').click()
+
+  // Verificar envío exitoso
+  cy.contains('Thanks for getting in touch', { timeout: 10000 })
+    .should('be.visible')
+
+  // Ingresar al panel admin
+  cy.fixture('admin').then((data) => {
+    cy.visit('https://automationintesting.online/admin', {
+      failOnStatusCode: false
+    })
+
+    cy.get('#username').type(data.admin.username)
+    cy.get('#password').type(data.admin.password)
+    cy.get('#doLogin').click()
+
+    // Acceder a mensajes
+    cy.contains('Messages').click()
+
+    // Verificar mensaje recibido
+    cy.contains('Mensaje de prueba CP23', { timeout: 10000 })
+      .should('be.visible')
+      .click()
+
+    cy.contains(
+      'Este mensaje es para verificar la lectura en el panel admin.'
+    ).should('be.visible')
+  })
+})
