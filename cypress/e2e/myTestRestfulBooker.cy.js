@@ -263,8 +263,13 @@ describe('Casos adicionales - Shady Meadows', () => {
 
 })
 
+<<<<<<< HEAD
 
 // ADMIN PANEL
+=======
+// ADMIN PANEL:
+ 
+>>>>>>> dc258d8 (cuarto commit)
 it('CP19 - Login con contraseña incorrecta', () => {
   cy.fixture('admin').then((data) => {
     cy.visit('https://automationintesting.online/admin', {
@@ -337,4 +342,8 @@ it('CP23 - Visualización y lectura de mensajes de clientes', () => {
       'Este mensaje es para verificar la lectura en el panel admin.'
     ).should('be.visible')
   })
+<<<<<<< HEAD
 })
+=======
+})
+>>>>>>> dc258d8 (cuarto commit)
