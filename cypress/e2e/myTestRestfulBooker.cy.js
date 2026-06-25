@@ -339,4 +339,5 @@ it('CP23 - Visualización y lectura de mensajes de clientes', () => {
     ).should('be.visible')
   })
 })
->>>>>>> dc258d8 (cuarto commit)
+
+
