@@ -337,8 +337,4 @@ it('CP23 - Visualización y lectura de mensajes de clientes', () => {
       'Este mensaje es para verificar la lectura en el panel admin.'
     ).should('be.visible')
   })
-<<<<<<< HEAD
 })
-=======
-})
->>>>>>> dc258d8 (cuarto commit)
